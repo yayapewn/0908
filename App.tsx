@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react';
-import { RotateCw, ChevronRight, ChevronLeft, ChevronUp, ChevronDown, MousePointer2, Smartphone, Monitor, Code, Save, Copy, Trash2, Share2 } from 'lucide-react';
+import { RotateCw, ChevronRight, ChevronLeft, ChevronUp, ChevronDown, MousePointer2, Smartphone, Monitor, Code, Save, Copy, Trash2, Share2, ArrowUpRight } from 'lucide-react';
 import ModelViewer from './components/ModelViewer';
 import { ProColorPicker } from './components/ProColorPicker';
 import { ShareModal } from './components/ShareModal';
@@ -492,6 +492,26 @@ const App: React.FC = () => {
                                           </button>
                                       ))}
                                   </div>
+                                  
+                                  {activeTexture && (
+                                      <div className="mt-5 px-1 animate-in fade-in slide-in-from-top-2 duration-500 delay-100 fill-mode-both">
+                                          <h4 className="text-[13px] font-black uppercase tracking-widest text-gray-900 mb-1.5">
+                                              {activeTexture.title || activeTexture.name}
+                                          </h4>
+                                          <div className="flex items-center text-[11px] lg:text-[13px] text-gray-500 font-medium leading-relaxed mb-3">
+                                              <span>{activeTexture.description}</span>
+                                              <a
+                                                  href={activeTexture.link || "https://www.paiho.com/tw/material-hub/b873383c1623dcffafd786ce755b2786"}
+                                                  target="_blank"
+                                                  rel="noopener noreferrer"
+                                                  className="ml-1.5 shrink-0 text-indigo-600 hover:text-indigo-800 transition-colors pointer-events-auto inline-flex items-center"
+                                                  title="Read more"
+                                              >
+                                                  <ArrowUpRight size={24} strokeWidth={2.5} />
+                                              </a>
+                                          </div>
+                                      </div>
+                                  )}
                               </section>
                             )}
 
